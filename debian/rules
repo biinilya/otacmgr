@@ -1,0 +1,39 @@
+#!/usr/bin/make -f
+export DH_VERBOSE=1
+build: build-stamp
+
+build-stamp:
+	dh_testdir
+	echo "## otacmgr install ##"
+	echo "## build ##"
+	./build.sh
+	touch $@
+
+clean:
+	echo "## clean ##"
+	dh_testdir
+	dh_testroot
+	rm -rf build build-stamp
+	dh_clean
+
+install: build
+	echo "## install ##"
+	dh_testdir
+	dh_testroot
+	dh_prep
+	dh_installdirs
+	dh_installcron
+	dh_install
+
+binary: build install binary-arch binary-indep
+	echo "## binary ##"
+	dh_testdir
+	dh_testroot
+	dh_link
+	# dh_strip
+	dh_compress
+	dh_fixperms
+	dh_installdeb
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
