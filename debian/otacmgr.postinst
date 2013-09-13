@@ -6,7 +6,7 @@ chmod -R a+r /var/log/otacache/
 
 ln -sf /lib/init/upstart-job /etc/init.d/otacmgr
 
-stop  || true
+stop otacmgr || true
 start otacmgr
 
 echo "==== END POSTINSTALL SCRIPT ===="
