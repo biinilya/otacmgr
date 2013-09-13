@@ -1,0 +1,15 @@
+Source: otacmgr
+Section: httpd
+Priority: optional
+Maintainer: Ilya Biin <i.biin@ostrovok.ru>
+Build-Depends:  debhelper (>= 7), libevent-dev, curl,
+                ostrovok-deb-tools (>=7-oneiric), automake, libtool,
+                mercurial, bzr, git
+Standards-Version: 3.9.2
+
+Package: otacmgr
+Architecture: any
+Depends: libevent-2.0-5,
+    ${misc:Depends}
+Description: package
+	metapackage
