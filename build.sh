@@ -8,10 +8,10 @@ $GOBIN/go get -fix "github.com/coreos/etcdctl"
 
 CDIR=$(pwd)
 cd $GOENV_PATH/src/github.com/coreos/etcd
-PATH="$GOBIN/$PATH" ./build
+PATH="$GOBIN:$PATH" ./build
 cp etcd $CDIR/otac_mgr
 cd $GOENV_PATH/src/github.com/coreos/etcdctl
-PATH="$GOBIN/$PATH" ./build
+PATH="$GOBIN:$PATH" ./build
 cp etcdctl $CDIR/otac_ctl
 cd $CDIR
 
