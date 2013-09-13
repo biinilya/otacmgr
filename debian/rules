@@ -37,3 +37,5 @@ binary: build install binary-arch binary-indep
 	dh_gencontrol
 	dh_md5sums
 	dh_builddeb
+
+.PHONY: build clean clean-patched binary-indep binary-arch binarydocs binary install configure configure-stamp installdocs installbasic unpatch patchsource patch-stamp otacmgr
