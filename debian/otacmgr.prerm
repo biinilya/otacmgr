@@ -1,0 +1,4 @@
+#!/bin/bash
+stop otacmgr || true
+
+echo "==== END PRERM SCRIPT ===="
