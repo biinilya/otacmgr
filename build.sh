@@ -1,5 +1,5 @@
 #!/bin/bash
-GF=$(mktemp -t goenv); curl -s https://raw.github.com/biinilya/goenv/master/activate.sh > $GF; source $GF
+GF=$(mktemp -t goenvXXX); curl -s https://raw.github.com/biinilya/goenv/master/activate.sh > $GF; source $GF
 goon otacmgr
 set -x
 
