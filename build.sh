@@ -1,10 +1,19 @@
 #!/bin/bash
-GF=$(mktemp -t goenvXXX); curl -s https://raw.github.com/biinilya/goenv/master/activate.sh > $GF; source $GF
+
+if [[ -z $GOENV_PATH ]]; then 
+	GOENV_SCRIPT=https://raw.github.com/biinilya/goenv/master/activate.sh
+	GF=$(mktemp -t goenvXXX); curl -s $GOENV_SCRIPT > $GF; . $GF
+fi
+
 goon otacmgr
+goversion 1.2rc4
+
+rm -rf ~/.goenv/otacmgr
+
 set -x
 
-$GOBIN/go get -fix "github.com/coreos/etcd"
-$GOBIN/go get -fix "github.com/coreos/etcdctl"
+go get "github.com/coreos/etcd"
+go get "github.com/coreos/etcdctl"
 
 CDIR=$(pwd)
 cd $GOENV_PATH/src/github.com/coreos/etcd
